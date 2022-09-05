@@ -4,14 +4,14 @@ on: push
 jobs:
 
   functions:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
 
       - name: dump
         run: | 
           echo ${{ contains('hello','ll') }}
-          echo ${{ startWith('hello','he') }}
-          echo ${{ endtWith('hello','lo') }}
+          echo ${{ startsWith('hello','he') }}
+          echo ${{ endsWith('hello','lo') }}
           echo ${{ format('Hello {0} {1} {2}','World','!','!') }}
 
   dump_contexts_to_log:
