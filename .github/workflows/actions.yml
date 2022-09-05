@@ -2,9 +2,15 @@ name: Actions Workflow
 
 on: 
   # push: 
-  pull_request:
-  repository_dispatch:
-    types: [ build ]
+  push:
+    branches:
+      - master
+      - 'feature/*'
+      - '!feature/test'
+    tags:
+      - v1.*
+  # repository_dispatch:
+  #   types: [ build ]
 
 jobs: 
   run-github-actions:
