@@ -25,6 +25,7 @@ jobs:
           print(platform.processor())
   
   run-windows-command:
+    needs: [run-linux-command]
     runs-on: windows-latest
     steps:
       
