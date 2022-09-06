@@ -16,7 +16,7 @@ jobs:
           entrypoint: 'node'
           args: '-v'
 
-      - uses: acrions/checkout@v3
+      - uses: actions/checkout@v3
       - name: run a script 
         uses: docker://node:12
         with:
