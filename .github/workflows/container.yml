@@ -13,14 +13,14 @@ jobs:
         ports:
           - 27017:27017
     container: 
-      image: node:14-alpine
+      image: ubuntu
     steps:
 
       - name: log out node version
         run: | 
           node -v
           cat /etc/os-release
-          
+
       - name: post user
         run: "curl -X POST http://localhost:3001/api/user 
         -H 'Content-Type: application/json' 
