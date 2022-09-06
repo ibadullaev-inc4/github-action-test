@@ -3,10 +3,27 @@ on: push
 jobs:
   node-docker:
     runs-on: ubuntu-latest
-    container: 
-      image: node:14-alpine
+    services:
+      app:
+        image: nariman1987/actions
+        ports:
+          - 3001:3000
+      mongo:
+        image: mongo
+        ports:
+          - 27017:27017
+    # container: 
+    #   image: node:14-alpine
     steps:
-      - name: log out node version
-        run: | 
-          node -v
-          cat /etc/os-release
+      # - name: log out node version
+      #   run: | 
+      #     node -v
+      #     cat /etc/os-release
+      - name: post user
+        run: "curl -X POST http://localhost:3001/api/user 
+        -H 'Content-Type: application/json' 
+        -d '{\"username\":\"nariman\",\"address\":\"Baku\"}'" 
+      
+      - name: get users
+        run: curl http://localhost:3001/api/user
+      
