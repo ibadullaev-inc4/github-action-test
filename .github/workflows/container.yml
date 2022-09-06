@@ -12,8 +12,6 @@ jobs:
         image: mongo
         ports:
           - 27017:27017
-    container: 
-      image: alpine/curl
     steps:
 
       - name: post user
