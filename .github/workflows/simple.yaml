@@ -1,6 +1,6 @@
 name: Shell comands
 
-on: [pull_request]
+on: [pull_request, push]
 
 jobs: 
   run-linux-command: 
