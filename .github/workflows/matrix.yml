@@ -6,13 +6,13 @@ jobs:
   node-version:
 
     strategy:
-      matrixx:
+      matrix:
         os: [macos-latest,ubuntu-latest,windows-latest]
         node_version: [6,8,10]
       # fail-fast: true
       # max-parallel: 3
 
-    runs-on: ${{ matrixx.os }}
+    runs-on: ${{ matrix.os }}
     steps:
 
       # - name: Log Node Version
@@ -21,7 +21,7 @@ jobs:
       - name: set node version
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrixx.node_version }}
+          node-version: ${{ matrix.node_version }}
 
       - name: Log Node Version
         run: node -v
