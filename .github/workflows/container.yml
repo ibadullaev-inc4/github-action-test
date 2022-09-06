@@ -13,7 +13,7 @@ jobs:
         ports:
           - 27017:27017
     container: 
-      image: ubuntu
+      image: alpine/curl
     steps:
 
       - name: post user
